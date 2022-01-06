@@ -2,7 +2,7 @@ class Solution {
 public:
     int res=-1;
     bool isValid(vector<int>& arr,int h,int mid){
-       long time=0;
+       int time=0;
         
         for(int i=0;i<arr.size();i++){
             
