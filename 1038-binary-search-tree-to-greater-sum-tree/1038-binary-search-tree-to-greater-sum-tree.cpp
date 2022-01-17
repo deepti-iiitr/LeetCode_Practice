@@ -14,9 +14,10 @@ public:
     void createTree(unordered_map<int,int> map,TreeNode* root)
     {
         if(root!=NULL){
+            root->val = map[root->val]; 
             createTree(map,root->left);
            createTree(map,root->right);
-           root->val = map[root->val]; 
+           
         }
     }
     TreeNode* bstToGst(TreeNode* root) {
