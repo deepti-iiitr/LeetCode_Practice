@@ -1,34 +1,23 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
 
 class Solution {
 public:
-    TreeNode* solve(vector<int> &v, int start, int end,int &id){
-        if(id>v.size() || start>end || start<0 || end>=v.size())
+     TreeNode* solve(ListNode* head, ListNode* tail = NULL) {
+        if (head == tail) 
             return NULL;
-        id++;
-        int mid = (start+end)/2;
-        TreeNode* new_root=  new TreeNode(v[mid]);
-        new_root->left= solve(v, start, mid-1,id);
-         new_root->right= solve(v, mid+1, end,id);
-        return new_root;
+        
+        ListNode* fast = head, *slow = head;
+        while (fast != tail && fast->next != tail) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        
+        TreeNode* root = new TreeNode(slow->val);
+        root->left = solve(head, slow);
+        root->right = solve(slow->next, tail);
+        
+        return root;
     }
     TreeNode* sortedListToBST(ListNode* head) {
-        vector<int>v;
-        
-        while(head!= NULL){
-            v.push_back(head->val);
-            head=head->next;
-        }
-        int id=0;
-        return solve(v, 0, v.size()-1,id);
+        return solve(head, NULL);
     }
 };
