@@ -1,27 +1,24 @@
 class Solution {
 public:
     vector<string> findRepeatedDnaSequences(string s) {
+        unordered_map<string, int> mp;  
+        int i = 0 , j = 0;
+        string word;
+        
+        while(j < s.size()) { 
+            word += s[j]; 
+            if(j-i+1 < 10) j++;
+            else {
+                mp[word]++;
+                word = word.substr(1);
+                i++;
+                j++;
+            }
+        }
+        
         vector<string> ans;
-        string t;
-        unordered_map<string,int> hash;
-        if(s.length()<=10)
-            return ans;
-        for(int i=0;i<10;i++)
-        {
-            t.push_back(s[i]);
-        }
-        hash[t]++;
-        int i=1;
-        for(int j=10;j<s.length();j++){
-            t.erase(t.begin()+0);
-            t.push_back(s[j]);
-            i++;
-            hash[t]++;
-            if(hash[t]>1)
-                ans.push_back(t);
-        }
-        sort(ans.begin(), ans.end());
-        ans.erase(std::unique(ans.begin(), ans.end()), ans.end());
+        for(auto i : mp) if(i.second > 1) ans.push_back(i.first);
         return ans;
+    
     }
 };
