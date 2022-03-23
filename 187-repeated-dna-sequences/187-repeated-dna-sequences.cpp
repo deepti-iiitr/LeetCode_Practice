@@ -6,11 +6,6 @@ public:
         unordered_map<string,int> hash;
         if(s.length()<=10)
             return ans;
-        // if (s.length()==10)
-        // {
-        //     ans.push_back(s);
-        //     return ans;
-        // }
         for(int i=0;i<10;i++)
         {
             t.push_back(s[i]);
