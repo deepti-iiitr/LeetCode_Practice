@@ -10,7 +10,11 @@ public:
             if(j-i+1 < 10) j++;
             else {
                 mp[word]++;
-                word = word.substr(1);
+                cout<<word<<endl;
+                word.erase(word.begin()+0);
+                //word = word.substr(1);
+                cout<<word<<endl;
+                
                 i++;
                 j++;
             }
