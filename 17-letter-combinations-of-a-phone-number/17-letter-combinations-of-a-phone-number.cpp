@@ -13,6 +13,7 @@ public:
             for(int j=0;j<m[c].size();j++){ 
                 char ch=m[c][j];
                 s.push_back(ch);
+                cout<<ch<<endl;
                 backtrack(i+1, s, d);
                 s.pop_back();
             }
