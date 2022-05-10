@@ -1,8 +1,8 @@
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-         unordered_map<char,int> mapp1;
-        unordered_map<char,int> mapp2;
+         map<char,int> mapp1;
+        map<char,int> mapp2;
         
         for(int i=0; i<s.size(); i++){
             mapp1[s[i]] =i+1;
