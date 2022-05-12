@@ -5,23 +5,23 @@ public:
             return s;
         string result;
         stack<string>st;
-        for(int i=0;i<s.size();i++){
+        for(int i=s.size()-1;i>=0;i--){
             string temp;
             if(s[i]==' ')
                 continue;
-            while(i<s.size() && s[i]!=' ')
+            while(i>=0 && s[i]!=' ')
             {
                 temp+=s[i];
-                i++;
+                i--;
             }
-            st.push(temp);
-        }
-        while(!empty(st)){
-            result+=st.top();
-            st.pop();
-            if(!empty(st))
+            reverse(temp.begin(), temp.end());
+            result+=temp;
+            if(i >= 1)
                 result+=" ";
         }
+        int n=result.size();
+        if(result[n-1] == ' ')
+            result.erase(result.begin() + n-1);
         return result;
     }
 };
