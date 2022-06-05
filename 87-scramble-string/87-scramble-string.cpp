@@ -19,10 +19,10 @@ class Solution
             {
 
                 if (solve(a.substr(0, i), b.substr(0, i), t) && solve(a.substr(i), b.substr(i), t))
-                    return true;
+                    return t[str]=true;
 
                 if (solve(a.substr(0, i), b.substr(n - i), t) && solve(a.substr(i), b.substr(0, n - i), t))
-                    return true;
+                    return t[str]=true;
             }
 
             return t[str] = false;
