@@ -16,7 +16,7 @@ public:
         v.push_back(root);
         if(root==t)
         {
-            //v.push_back(root);
+            
             return true;
         }
         if(path(root->left,v,t))
